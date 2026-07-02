@@ -2,4 +2,5 @@ artifacts/staging/
 artifacts/staging/.run/
 *.log
 *.smcl
+replicate_*.log
 tab_*.log

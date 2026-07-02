@@ -1,88 +1,12 @@
 {
-  "generated_at": "2026-07-02T18:36:49Z",
+  "generated_at": "2026-07-02T21:14:54Z",
   "folder": "10.1257_aer.91.5.1369",
   "doi": "10.1257/aer.91.5.1369",
   "study_path": "C:/WZB Dropbox/Macartan Humphreys/5_github/replicate_everything/rep-10.1257-aer.91.5.1369",
   "replications": {
-    "tab_1": {
-      "status": "ok",
-      "artifact": "artifacts/tab_1.html",
-      "format": "html"
-    },
     "tab_1_stata": {
-      "status": "ok",
-      "artifact": "artifacts/tab_1_stata.html",
-      "format": "html"
-    },
-    "tab_2": {
-      "status": "ok",
-      "artifact": "artifacts/tab_2.html",
-      "format": "html"
-    },
-    "tab_2_stata": {
-      "status": "ok",
-      "artifact": "artifacts/tab_2_stata.html",
-      "format": "html"
-    },
-    "tab_3": {
-      "status": "ok",
-      "artifact": "artifacts/tab_3.html",
-      "format": "html"
-    },
-    "tab_3_stata": {
-      "status": "ok",
-      "artifact": "artifacts/tab_3_stata.html",
-      "format": "html"
-    },
-    "tab_4": {
-      "status": "ok",
-      "artifact": "artifacts/tab_4.html",
-      "format": "html"
-    },
-    "tab_4_stata": {
-      "status": "ok",
-      "artifact": "artifacts/tab_4_stata.html",
-      "format": "html"
-    },
-    "tab_5": {
-      "status": "ok",
-      "artifact": "artifacts/tab_5.html",
-      "format": "html"
-    },
-    "tab_5_stata": {
-      "status": "ok",
-      "artifact": "artifacts/tab_5_stata.html",
-      "format": "html"
-    },
-    "tab_6": {
-      "status": "ok",
-      "artifact": "artifacts/tab_6.html",
-      "format": "html"
-    },
-    "tab_6_stata": {
-      "status": "ok",
-      "artifact": "artifacts/tab_6_stata.html",
-      "format": "html"
-    },
-    "tab_7": {
-      "status": "ok",
-      "artifact": "artifacts/tab_7.html",
-      "format": "html"
-    },
-    "tab_7_stata": {
-      "status": "ok",
-      "artifact": "artifacts/tab_7_stata.html",
-      "format": "html"
-    },
-    "tab_8": {
-      "status": "ok",
-      "artifact": "artifacts/tab_8.html",
-      "format": "html"
-    },
-    "tab_8_stata": {
-      "status": "ok",
-      "artifact": "artifacts/tab_8_stata.html",
-      "format": "html"
+      "status": "error",
+      "message": "Expected Stata output not found.\nExpected file: C:/WZB Dropbox/Macartan Humphreys/5_github/replicate_everything/rep-10.1257-aer.91.5.1369/artifacts/staging/tab_1_stata.log\nStata ran: yes\nExecutable: C:/Program Files/Stata17/StataMP-64.exe\nInvocation: /e do C:/WZB Dropbox/Macartan Humphreys/5_github/replicate_everything/rep-10.1257-aer.91.5.1369/artifacts/staging/.run/replicate_tab_1.do\nExit status: 0\nDo-file: C:/WZB Dropbox/Macartan Humphreys/5_github/replicate_everything/rep-10.1257-aer.91.5.1369/code/tab_1.do\nStudy folder (code): C:/WZB Dropbox/Macartan Humphreys/5_github/replicate_everything/rep-10.1257-aer.91.5.1369\nStaging directory: C:/WZB Dropbox/Macartan Humphreys/5_github/replicate_everything/rep-10.1257-aer.91.5.1369/artifacts/staging\nLog file: C:/WZB Dropbox/Macartan Humphreys/5_github/replicate_everything/rep-10.1257-aer.91.5.1369/artifacts/staging/.run/replicate_tab_1.log\nLog exists: no\nAlso checked:\n  - C:/WZB Dropbox/Macartan Humphreys/5_github/replicate_everything/rep-10.1257-aer.91.5.1369/artifacts/staging/tab_1_stata.log\n  - C:/WZB Dropbox/Macartan Humphreys/5_github/replicate_everything/rep-10.1257-aer.91.5.1369/artifacts/staging/tab_1_stata.log\nStudy staging: C:/WZB Dropbox/Macartan Humphreys/5_github/replicate_everything/rep-10.1257-aer.91.5.1369/artifacts/staging\n  (empty)\nWritable staging: C:/WZB Dropbox/Macartan Humphreys/5_github/replicate_everything/rep-10.1257-aer.91.5.1369/artifacts/staging\n  (empty)"
     }
   }
 }

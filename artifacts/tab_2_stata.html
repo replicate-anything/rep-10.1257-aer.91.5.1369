@@ -1,8 +1,160 @@
-<pre class="stata-output replication-table">-------------------------------------------------------------------------------
-      name:  <unnamed>
-       log:  C:\WZB Dropbox\Macartan Humphreys\5_github\replicate_everything\re
-> p-10.1257-aer.91.5.1369\artifacts\staging\tab_2_stata.log
-  log type:  text
- opened on:   2 Jul 2026, 19:36:53
-
-. quietly do "${maindir}/stata/maketable2.do"</pre>
+<pre class="stata-output replication-table">. 
+. * Analysis is in code/maketable2.do (shown in full in the Code tab).
+. do "${maindir}/code/maketable2.do"
+. ***********************************************************
+. *Creates Table 2: OLS Regressions
+. ***********************************************************
+. clear
+. 
+. /*Data Files Used
+&gt;         
+&gt;         
+.         
+. ***********************
+. *---Column 1
+. ***********************
+. 
+. *Note: there are 111 countries in the world sample that have all the necessar
+. 
+. use "${datadir}/maketable2", clear
+. 
+. regress logpgp95 avexpr, robust
+Linear regression                               Number of obs     =        111
+                                                F(1, 109)         =     334.78
+                                                Prob &gt; F          =     0.0000
+                                                R-squared         =     0.6113
+                                                Root MSE          =     .71793
+             |               Robust
+    logpgp95 | Coefficient  std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+      avexpr |   .5318713   .0290688    18.30   0.000      .474258    .5894847
+       _cons |   4.626089   .2406654    19.22   0.000     4.149098     5.10308
+. 
+. 
+. ***********************
+. *---Column 2
+. ***********************
+. 
+. regress logpgp95 avexpr if baseco==1, robust
+Linear regression                               Number of obs     =         64
+                                                F(1, 62)          =     109.38
+                                                Prob &gt; F          =     0.0000
+                                                R-squared         =     0.5401
+                                                Root MSE          =     .71324
+             |               Robust
+    logpgp95 | Coefficient  std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+      avexpr |    .522107   .0499225    10.46   0.000     .4223133    .6219007
+       _cons |   4.660383   .3201315    14.56   0.000      4.02045    5.300317
+. 
+. 
+. ***********************
+. *--Column 3
+. ***********************
+. 
+. regress logpgp95 avexpr lat_abst, robust
+Linear regression                               Number of obs     =        111
+                                                F(2, 108)         =     183.95
+                                                Prob &gt; F          =     0.0000
+                                                R-squared         =     0.6225
+                                                Root MSE          =      .7108
+             |               Robust
+    logpgp95 | Coefficient  std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+      avexpr |   .4634816   .0521728     8.88   0.000      .360066    .5668972
+    lat_abst |   .8721613   .4993736     1.75   0.084    -.1176837    1.862006
+       _cons |   4.872922   .2807513    17.36   0.000     4.316424     5.42942
+. 
+. ***********************
+. *--Column 4
+. ***********************
+.         
+. regress logpgp95 avexpr lat_abst africa asia other, robust
+Linear regression                               Number of obs     =        111
+                                                F(5, 105)         =      97.09
+                                                Prob &gt; F          =     0.0000
+                                                R-squared         =     0.7152
+                                                Root MSE          =     .62614
+             |               Robust
+    logpgp95 | Coefficient  std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+      avexpr |   .3895612   .0510047     7.64   0.000     .2884282    .4906941
+    lat_abst |    .332564     .44244     0.75   0.454    -.5447128    1.209841
+      africa |  -.9163864   .1541114    -5.95   0.000    -1.221961    -.610812
+        asia |  -.1530635   .1805053    -0.85   0.398    -.5109721    .2048452
+       other |   .3035491   .1743288     1.74   0.085    -.0421128    .6492109
+       _cons |   5.851084   .2934966    19.94   0.000     5.269135    6.433034
+. 
+. ***********************
+. *--Column 5
+. ***********************
+. 
+. regress logpgp95 avexpr lat_abst if baseco==1, robust
+Linear regression                               Number of obs     =         64
+                                                F(2, 61)          =      64.91
+                                                Prob &gt; F          =     0.0000
+                                                R-squared         =     0.5745
+                                                Root MSE          =     .69166
+             |               Robust
+    logpgp95 | Coefficient  std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+      avexpr |   .4678871   .0626811     7.46   0.000     .3425484    .5932257
+    lat_abst |   1.576884   .6506046     2.42   0.018     .2759197    2.877848
+       _cons |   4.728082   .3413732    13.85   0.000     4.045464      5.4107
+. 
+. ***********************
+. *--Column 6
+. ***********************
+. 
+. regress logpgp95 avexpr lat_abst africa asia other if baseco==1, robust
+Linear regression                               Number of obs     =         64
+                                                F(5, 58)          =      53.79
+                                                Prob &gt; F          =     0.0000
+                                                R-squared         =     0.7139
+                                                Root MSE          =     .58163
+             |               Robust
+    logpgp95 | Coefficient  std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+      avexpr |   .4012826   .0640653     6.26   0.000     .2730419    .5295233
+    lat_abst |   .8752965   .6142898     1.42   0.160    -.3543381    2.104931
+      africa |  -.8806805   .1555275    -5.66   0.000    -1.192003   -.5693585
+        asia |  -.5767549   .2991853    -1.93   0.059    -1.175639    .0221296
+       other |    .107205   .2229782     0.48   0.632    -.3391344    .5535445
+       _cons |   5.736729   .3893229    14.74   0.000     4.957415    6.516044
+. 
+. ***********************
+. *---Column 7
+. ***********************
+. 
+. regress loghjypl avexpr, robust
+Linear regression                               Number of obs     =        108
+                                                F(1, 106)         =     230.57
+                                                Prob &gt; F          =     0.0000
+                                                R-squared         =     0.5541
+                                                Root MSE          =     .71344
+             |               Robust
+    loghjypl | Coefficient  std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+      avexpr |   .4462022   .0293855    15.18   0.000     .3879427    .5044617
+       _cons |   -4.82763   .2431068   -19.86   0.000    -5.309612   -4.345647
+. 
+. 
+. ***********************
+. *---Column 8
+. ***********************
+. 
+. regress loghjypl avexpr if baseco==1, robust
+Linear regression                               Number of obs     =         61
+                                                F(1, 59)          =      84.18
+                                                Prob &gt; F          =     0.0000
+                                                R-squared         =     0.4862
+                                                Root MSE          =     .70894
+             |               Robust
+    loghjypl | Coefficient  std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+      avexpr |   .4571098     .04982     9.18   0.000     .3574203    .5567993
+       _cons |  -4.911738   .3232883   -15.19   0.000    -5.558636   -4.264839
+. 
+. 
+. log close
+ closed on:   2 Jul 2026, 23:17:39</pre>

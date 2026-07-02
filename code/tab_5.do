@@ -30,7 +30,7 @@ cd "${result}"
 log using "tab_5_stata", replace text
 
 * Analysis is in code/maketable5.do (shown in full in the Code tab).
-quietly do "${maindir}/code/maketable5.do"
+do "${maindir}/code/maketable5.do"
 
 capture log close
 cd "`oldpwd'"

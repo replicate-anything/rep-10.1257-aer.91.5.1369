@@ -1,10 +1,572 @@
-<pre class="stata-output replication-table">-------------------------------------------------------------------------------
-      name:  <unnamed>
-       log:  C:\WZB Dropbox\Macartan Humphreys\5_github\replicate_everything\re
-> p-10.1257-aer.91.5.1369\artifacts\staging\tab_7_stata.log
-  log type:  text
- opened on:   2 Jul 2026, 19:36:53
-
-. quietly do "${maindir}/stata/maketable7.do"
-
-. capture log close</pre>
+<pre class="stata-output replication-table">. 
+. * Analysis is in code/maketable7.do (shown in full in the Code tab).
+. do "${maindir}/code/maketable7.do"
+. *****************************************************************************
+. *Creates Table 7: Geography and Health Variables
+. *****************************************************************************
+. clear
+. 
+. /*Data Files Used
+&gt;         
+&gt;         
+.         
+. use "${datadir}/maketable7", clear
+. keep if baseco==1
+(99 observations deleted)
+. 
+. 
+. **********************************
+. *--Panels A and B, IV Regressions
+. **********************************
+. 
+. *Columns 1 and 2: Instrumenting only for average protection against expropria
+. 
+. ivreg logpgp95 (avexpr=logem4) malfal94, first
+First-stage regressions
+      Source |       SS           df       MS      Number of obs   =        62
+-------------+----------------------------------   F(2, 59)        =     12.31
+       Model |  39.5709025         2  19.7854512   Prob &gt; F        =    0.0000
+    Residual |  94.7935071        59  1.60666961   R-squared       =    0.2945
+-------------+----------------------------------   Adj R-squared   =    0.2706
+       Total |   134.36441        61  2.20269524   Root MSE        =    1.2675
+      avexpr | Coefficient  Std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+    malfal94 |  -.7902259   .5375324    -1.47   0.147    -1.865826     .285374
+      logem4 |  -.4172807   .1855323    -2.25   0.028      -.78853   -.0460314
+       _cons |   8.757417    .750646    11.67   0.000     7.255377    10.25946
+Instrumental variables 2SLS regression
+      Source |       SS           df       MS      Number of obs   =        62
+-------------+----------------------------------   F(2, 59)        =     36.59
+       Model |  34.8067644         2  17.4033822   Prob &gt; F        =    0.0000
+    Residual |  30.3079271        59   .51369368   R-squared       =    0.5345
+-------------+----------------------------------   Adj R-squared   =    0.5188
+       Total |  65.1146915        61  1.06745396   Root MSE        =    .71672
+    logpgp95 | Coefficient  Std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+      avexpr |   .6870742   .2514086     2.73   0.008     .1840067    1.190142
+    malfal94 |  -.5784585   .4673988    -1.24   0.221    -1.513721    .3568044
+       _cons |   3.790856   1.799881     2.11   0.039     .1893036    7.392409
+Instrumented: avexpr
+ Instruments: malfal94 logem4
+. ivreg logpgp95 lat_abst (avexpr=logem4) malfal94, first
+First-stage regressions
+      Source |       SS           df       MS      Number of obs   =        62
+-------------+----------------------------------   F(3, 58)        =      8.76
+       Model |  41.8827137         3  13.9609046   Prob &gt; F        =    0.0001
+    Residual |  92.4816959        58    1.594512   R-squared       =    0.3117
+-------------+----------------------------------   Adj R-squared   =    0.2761
+       Total |   134.36441        61  2.20269524   Root MSE        =    1.2627
+      avexpr | Coefficient  Std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+    lat_abst |   1.683799   1.398389     1.20   0.233     -1.11538    4.482978
+    malfal94 |  -.6487872   .5482267    -1.18   0.241    -1.746182    .4486079
+      logem4 |  -.3755514     .18805    -2.00   0.051    -.7519744    .0008715
+       _cons |   8.209087   .8755468     9.38   0.000     6.456489    9.961684
+Instrumental variables 2SLS regression
+      Source |       SS           df       MS      Number of obs   =        62
+-------------+----------------------------------   F(3, 58)        =     22.58
+       Model |  32.6398368         3  10.8799456   Prob &gt; F        =    0.0000
+    Residual |  32.4748547        58  .559911288   R-squared       =    0.5013
+-------------+----------------------------------   Adj R-squared   =    0.4755
+       Total |  65.1146915        61  1.06745396   Root MSE        =    .74827
+    logpgp95 | Coefficient  Std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+      avexpr |   .7206119   .2967219     2.43   0.018     .1266584    1.314565
+    lat_abst |  -.5646915   1.043497    -0.54   0.590    -2.653478    1.524095
+    malfal94 |  -.5993901   .4730513    -1.27   0.210    -1.546305     .347525
+       _cons |   3.681045   1.982486     1.86   0.068    -.2873329    7.649422
+Instrumented: avexpr
+ Instruments: lat_abst malfal94 logem4
+. 
+. *Columns 3 and 4: Instrumenting only for average protection against expropria
+. 
+. ivreg logpgp95 (avexpr=logem4) leb95, first
+First-stage regressions
+      Source |       SS           df       MS      Number of obs   =        60
+-------------+----------------------------------   F(2, 57)        =     14.74
+       Model |  44.7452433         2  22.3726216   Prob &gt; F        =    0.0000
+    Residual |  86.5224189        57  1.51793717   R-squared       =    0.3409
+-------------+----------------------------------   Adj R-squared   =    0.3177
+       Total |  131.267662        59  2.22487563   Root MSE        =     1.232
+      avexpr | Coefficient  Std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+       leb95 |   .0471394   .0186311     2.53   0.014     .0098312    .0844476
+      logem4 |   -.336054   .1719413    -1.95   0.056    -.6803606    .0082526
+       _cons |   5.138545   1.808215     2.84   0.006     1.517658    8.759432
+Instrumental variables 2SLS regression
+      Source |       SS           df       MS      Number of obs   =        60
+-------------+----------------------------------   F(2, 57)        =     47.40
+       Model |  35.7300727         2  17.8650363   Prob &gt; F        =    0.0000
+    Residual |  25.1923092        57  .441970338   R-squared       =    0.5865
+-------------+----------------------------------   Adj R-squared   =    0.5720
+       Total |  60.9223819        59  1.03258274   Root MSE        =    .66481
+    logpgp95 | Coefficient  Std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+      avexpr |   .6294439   .2760838     2.28   0.026     .0765957    1.182292
+       leb95 |   .0269356   .0210369     1.28   0.206      -.01519    .0690612
+       _cons |   2.243338   .7423305     3.02   0.004     .7568468    3.729829
+Instrumented: avexpr
+ Instruments: leb95 logem4
+. ivreg logpgp95 lat_abst (avexpr=logem4) leb95, first
+First-stage regressions
+      Source |       SS           df       MS      Number of obs   =        60
+-------------+----------------------------------   F(3, 56)        =      9.99
+       Model |  45.7501124         3  15.2500375   Prob &gt; F        =    0.0000
+    Residual |  85.5175498        56   1.5270991   R-squared       =    0.3485
+-------------+----------------------------------   Adj R-squared   =    0.3136
+       Total |  131.267662        59  2.22487563   Root MSE        =    1.2358
+      avexpr | Coefficient  Std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+    lat_abst |   1.133589   1.397445     0.81   0.421    -1.665829    3.933007
+       leb95 |   .0437231   .0191559     2.28   0.026     .0053492    .0820971
+      logem4 |  -.3017835   .1775587    -1.70   0.095    -.6574763    .0539093
+       _cons |   4.987294   1.823223     2.74   0.008     1.334941    8.639648
+Instrumental variables 2SLS regression
+      Source |       SS           df       MS      Number of obs   =        60
+-------------+----------------------------------   F(3, 56)        =     27.74
+       Model |  32.6964901         3    10.89883   Prob &gt; F        =    0.0000
+    Residual |  28.2258918        56  .504033783   R-squared       =    0.5367
+-------------+----------------------------------   Adj R-squared   =    0.5119
+       Total |  60.9223819        59  1.03258274   Root MSE        =    .70995
+    logpgp95 | Coefficient  Std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+      avexpr |   .6770089   .3380202     2.00   0.050     -.000127    1.354145
+    lat_abst |  -.5287279   .9683868    -0.55   0.587     -2.46864    1.411184
+       leb95 |   .0262868   .0229183     1.15   0.256    -.0196241    .0721977
+       _cons |   2.069469   .9371888     2.21   0.031     .1920542    3.946884
+Instrumented: avexpr
+ Instruments: lat_abst leb95 logem4
+. 
+. *Columns 5 and 6: Instrumenting only for average protection against expropria
+. 
+. ivreg logpgp95 (avexpr=logem4) imr95, first
+First-stage regressions
+      Source |       SS           df       MS      Number of obs   =        60
+-------------+----------------------------------   F(2, 57)        =     13.61
+       Model |  42.4207003         2  21.2103502   Prob &gt; F        =    0.0000
+    Residual |  88.8469619        57  1.55871863   R-squared       =    0.3232
+-------------+----------------------------------   Adj R-squared   =    0.2994
+       Total |  131.267662        59  2.22487563   Root MSE        =    1.2485
+      avexpr | Coefficient  Std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+       imr95 |  -.0128276   .0058902    -2.18   0.034    -.0246225   -.0010328
+      logem4 |  -.3559983   .1793454    -1.98   0.052    -.7151313    .0031347
+       _cons |   8.891804   .6877838    12.93   0.000     7.514541    10.26907
+Instrumental variables 2SLS regression
+      Source |       SS           df       MS      Number of obs   =        60
+-------------+----------------------------------   F(2, 57)        =     58.75
+       Model |  40.8667615         2  20.4333807   Prob &gt; F        =    0.0000
+    Residual |  20.0556204        57   .35185299   R-squared       =    0.6708
+-------------+----------------------------------   Adj R-squared   =    0.6592
+       Total |  60.9223819        59  1.03258274   Root MSE        =    .59317
+    logpgp95 | Coefficient  Std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+      avexpr |   .5505523   .2393531     2.30   0.025      .071256    1.029849
+       imr95 |  -.0102444   .0053824    -1.90   0.062    -.0210224    .0005336
+       _cons |   5.010736   1.838208     2.73   0.009     1.329789    8.691684
+Instrumented: avexpr
+ Instruments: imr95 logem4
+. ivreg logpgp95 lat_abst (avexpr=logem4) imr95, first
+First-stage regressions
+      Source |       SS           df       MS      Number of obs   =        60
+-------------+----------------------------------   F(3, 56)        =      9.57
+       Model |   44.474959         3  14.8249863   Prob &gt; F        =    0.0000
+    Residual |  86.7927031        56   1.5498697   R-squared       =    0.3388
+-------------+----------------------------------   Adj R-squared   =    0.3034
+       Total |  131.267662        59  2.22487563   Root MSE        =    1.2449
+      avexpr | Coefficient  Std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+    lat_abst |   1.587098   1.378554     1.15   0.255    -1.174478    4.348674
+       imr95 |  -.0122401   .0058956    -2.08   0.042    -.0240503   -.0004299
+      logem4 |  -.2911768   .1874895    -1.55   0.126    -.6667634    .0844099
+       _cons |   8.269678    .873138     9.47   0.000     6.520573    10.01878
+Instrumental variables 2SLS regression
+      Source |       SS           df       MS      Number of obs   =        60
+-------------+----------------------------------   F(3, 56)        =     37.85
+       Model |  40.2831121         3   13.427704   Prob &gt; F        =    0.0000
+    Residual |  20.6392699        56   .36855839   R-squared       =    0.6612
+-------------+----------------------------------   Adj R-squared   =    0.6431
+       Total |  60.9223819        59  1.03258274   Root MSE        =    .60709
+    logpgp95 | Coefficient  Std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+      avexpr |   .5622045   .3139972     1.79   0.079    -.0668076    1.191217
+    lat_abst |  -.1015638   .9494604    -0.11   0.915    -2.003562    1.800434
+       imr95 |  -.0101325   .0060641    -1.67   0.100    -.0222805    .0020154
+       _cons |    4.94694   2.239499     2.21   0.031     .4606838    9.433195
+Instrumented: avexpr
+ Instruments: lat_abst imr95 logem4
+. 
+. *Column 7: Instrumenting for all RHS variables: malaria control
+. 
+. ivreg logpgp95 (avexpr malfal94=logem4 latabs lt100km meantemp), first
+First-stage regressions
+      Source |       SS           df       MS      Number of obs   =        60
+-------------+----------------------------------   F(4, 55)        =      8.13
+       Model |  49.5828006         4  12.3957002   Prob &gt; F        =    0.0000
+    Residual |  83.8092425        55  1.52380441   R-squared       =    0.3717
+-------------+----------------------------------   Adj R-squared   =    0.3260
+       Total |  133.392043        59  2.26088209   Root MSE        =    1.2344
+      avexpr | Coefficient  Std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+      logem4 |  -.4091902   .1687032    -2.43   0.019    -.7472791   -.0711014
+      latabs |  -.8114337   1.796123    -0.45   0.653    -4.410945    2.788078
+     lt100km |   .5739277    .506637     1.13   0.262    -.4413956    1.589251
+    meantemp |  -.1161707   .0524931    -2.21   0.031    -.2213692   -.0109722
+       _cons |   11.06286   1.421001     7.79   0.000     8.215114    13.91061
+      Source |       SS           df       MS      Number of obs   =        60
+-------------+----------------------------------   F(4, 55)        =     22.32
+       Model |  7.06262033         4  1.76565508   Prob &gt; F        =    0.0000
+    Residual |  4.35058262        55  .079101502   R-squared       =    0.6188
+-------------+----------------------------------   Adj R-squared   =    0.5911
+       Total |  11.4132029        59  .193444118   Root MSE        =    .28125
+    malfal94 | Coefficient  Std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+      logem4 |   .2002973   .0384371     5.21   0.000     .1232675     .277327
+      latabs |  -.4050589   .4092266    -0.99   0.327    -1.225167    .4150496
+     lt100km |  -.3255818   .1154316    -2.82   0.007    -.5569119   -.0942517
+    meantemp |   .0072881     .01196     0.61   0.545    -.0166802    .0312564
+       _cons |  -.5300936   .3237592    -1.64   0.107    -1.178922    .1187344
+Instrumental variables 2SLS regression
+      Source |       SS           df       MS      Number of obs   =        60
+-------------+----------------------------------   F(2, 57)        =     40.84
+       Model |  32.7465921         2   16.373296   Prob &gt; F        =    0.0000
+    Residual |  28.6333468        57  .502339418   R-squared       =    0.5335
+-------------+----------------------------------   Adj R-squared   =    0.5171
+       Total |  61.3799389        59  1.04033795   Root MSE        =    .70876
+    logpgp95 | Coefficient  Std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+      avexpr |   .6886424    .258417     2.66   0.010     .1711714    1.206113
+    malfal94 |   -.622739   .6847052    -0.91   0.367    -1.993838    .7483594
+       _cons |   3.813633   1.933698     1.97   0.053    -.0585306    7.685796
+Instrumented: avexpr malfal94
+ Instruments: logem4 latabs lt100km meantemp
+. 
+. *Column 8: Instrumenting for all RHS variables: life expectancy control
+. 
+. ivreg logpgp95 (avexpr leb95=logem4 latabs lt100km meantemp), first
+First-stage regressions
+      Source |       SS           df       MS      Number of obs   =        59
+-------------+----------------------------------   F(4, 54)        =      7.61
+       Model |  47.1009983         4  11.7752496   Prob &gt; F        =    0.0001
+    Residual |  83.6044103        54  1.54822982   R-squared       =    0.3604
+-------------+----------------------------------   Adj R-squared   =    0.3130
+       Total |  130.705409        58  2.25354153   Root MSE        =    1.2443
+      avexpr | Coefficient  Std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+      logem4 |  -.3992893   .1722148    -2.32   0.024    -.7445592   -.0540194
+      latabs |   -.836228   1.811744    -0.46   0.646    -4.468556      2.7961
+     lt100km |   .5463246   .5162893     1.06   0.295    -.4887731    1.581422
+    meantemp |  -.1175002   .0530382    -2.22   0.031    -.2238354   -.0111649
+       _cons |   11.05373   1.432565     7.72   0.000     8.181614    13.92585
+      Source |       SS           df       MS      Number of obs   =        59
+-------------+----------------------------------   F(4, 54)        =     24.97
+       Model |  4769.62828         4  1192.40707   Prob &gt; F        =    0.0000
+    Residual |  2579.03516        54  47.7599104   R-squared       =    0.6490
+-------------+----------------------------------   Adj R-squared   =    0.6231
+       Total |  7348.66344        58  126.701094   Root MSE        =    6.9109
+       leb95 | Coefficient  Std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+      logem4 |  -4.579749    .956499    -4.79   0.000    -6.497414   -2.662084
+      latabs |   12.00986   10.06262     1.19   0.238    -8.164472    32.18419
+     lt100km |   12.33412   2.867524     4.30   0.000     6.585083    18.08316
+    meantemp |  -.2427068   .2945798    -0.82   0.414    -.8333037    .3478901
+       _cons |   83.15814   7.956613    10.45   0.000     67.20609    99.11019
+Instrumental variables 2SLS regression
+      Source |       SS           df       MS      Number of obs   =        59
+-------------+----------------------------------   F(2, 56)        =     32.74
+       Model |  25.1462425         2  12.5731212   Prob &gt; F        =    0.0000
+    Residual |  32.1842979        56  .574719606   R-squared       =    0.4386
+-------------+----------------------------------   Adj R-squared   =    0.4186
+       Total |  57.3305404        58  .988457594   Root MSE        =     .7581
+    logpgp95 | Coefficient  Std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+      avexpr |   .7371628   .2363393     3.12   0.003     .2637183    1.210607
+       leb95 |   .0172003    .023486     0.73   0.467    -.0298478    .0642484
+       _cons |   2.167796   .7314017     2.96   0.004     .7026223     3.63297
+Instrumented: avexpr leb95
+ Instruments: logem4 latabs lt100km meantemp
+. 
+. *Column 9: Instrumenting for all RHS variables: infant mortality control
+. 
+. ivreg logpgp95 (avexpr imr95=logem4 latabs lt100km meantemp), first
+First-stage regressions
+      Source |       SS           df       MS      Number of obs   =        59
+-------------+----------------------------------   F(4, 54)        =      7.61
+       Model |  47.1009983         4  11.7752496   Prob &gt; F        =    0.0001
+    Residual |  83.6044103        54  1.54822982   R-squared       =    0.3604
+-------------+----------------------------------   Adj R-squared   =    0.3130
+       Total |  130.705409        58  2.25354153   Root MSE        =    1.2443
+      avexpr | Coefficient  Std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+      logem4 |  -.3992893   .1722148    -2.32   0.024    -.7445592   -.0540194
+      latabs |   -.836228   1.811744    -0.46   0.646    -4.468556      2.7961
+     lt100km |   .5463246   .5162893     1.06   0.295    -.4887731    1.581422
+    meantemp |  -.1175002   .0530382    -2.22   0.031    -.2238354   -.0111649
+       _cons |   11.05373   1.432565     7.72   0.000     8.181614    13.92585
+      Source |       SS           df       MS      Number of obs   =        59
+-------------+----------------------------------   F(4, 54)        =     25.50
+       Model |  52541.6067         4  13135.4017   Prob &gt; F        =    0.0000
+    Residual |  27816.8107        54  515.126124   R-squared       =    0.6538
+-------------+----------------------------------   Adj R-squared   =    0.6282
+       Total |  80358.4174        58  1385.48995   Root MSE        =    22.696
+       imr95 | Coefficient  Std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+      logem4 |   17.19691   3.141301     5.47   0.000     10.89898    23.49484
+      latabs |   6.078629    33.0473     0.18   0.855    -60.17721    72.33447
+     lt100km |  -38.70843   9.417425    -4.11   0.000    -57.58923   -19.82763
+    meantemp |   1.292256   .9674488     1.34   0.187    -.6473617    3.231874
+       _cons |  -42.63121   26.13084    -1.63   0.109    -95.02038    9.757965
+Instrumental variables 2SLS regression
+      Source |       SS           df       MS      Number of obs   =        59
+-------------+----------------------------------   F(2, 56)        =     39.53
+       Model |  30.5136416         2  15.2568208   Prob &gt; F        =    0.0000
+    Residual |  26.8168988        56  .478873193   R-squared       =    0.5322
+-------------+----------------------------------   Adj R-squared   =    0.5155
+       Total |  57.3305404        58  .988457594   Root MSE        =    .69201
+    logpgp95 | Coefficient  Std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+      avexpr |    .675032   .2265383     2.98   0.004     .2212212    1.128843
+       imr95 |  -.0071936   .0067827    -1.06   0.293     -.020781    .0063939
+       _cons |   4.047294   1.819457     2.22   0.030     .4024836    7.692105
+Instrumented: avexpr imr95
+ Instruments: logem4 latabs lt100km meantemp
+. 
+. *Columns 10 and 11: Yellow fever instrument for average protection against ex
+. 
+. ivreg logpgp95 (avexpr = yellow), first
+First-stage regressions
+      Source |       SS           df       MS      Number of obs   =        64
+-------------+----------------------------------   F(1, 62)        =      7.17
+       Model |   14.083335         1   14.083335   Prob &gt; F        =    0.0095
+    Residual |  121.802906        62    1.964563   R-squared       =    0.1036
+-------------+----------------------------------   Adj R-squared   =    0.0892
+       Total |  135.886241        63  2.15692446   Root MSE        =    1.4016
+      avexpr | Coefficient  Std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+      yellow |  -1.083333   .4046154    -2.68   0.009    -1.892148   -.2745188
+       _cons |   7.328125   .3504072    20.91   0.000     6.627671    8.028579
+Instrumental variables 2SLS regression
+      Source |       SS           df       MS      Number of obs   =        64
+-------------+----------------------------------   F(1, 62)        =     13.92
+       Model |  16.2177918         1  16.2177918   Prob &gt; F        =    0.0004
+    Residual |  52.3639267        62  .844579463   R-squared       =    0.2365
+-------------+----------------------------------   Adj R-squared   =    0.2242
+       Total |  68.5817185        63  1.08859871   Root MSE        =    .91901
+    logpgp95 | Coefficient  Std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+      avexpr |   .9135754    .244888     3.73   0.000     .4240512    1.403099
+       _cons |   2.109722   1.599728     1.32   0.192    -1.088089    5.307534
+Instrumented: avexpr
+ Instruments: yellow
+. 
+. gen other_cont=.
+(64 missing values generated)
+. replace other_cont=1 if (shortnam=="AUS" | shortnam=="MLT" | shortnam=="NZL")
+(3 real changes made)
+. recode other_cont (.=0)
+(61 changes made to other_cont)
+. tab other_cont
+ other_cont |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          0 |         61       95.31       95.31
+          1 |          3        4.69      100.00
+------------+-----------------------------------
+      Total |         64      100.00
+. 
+. ivreg logpgp95 (avexpr = yellow) africa asia other_cont, first
+First-stage regressions
+      Source |       SS           df       MS      Number of obs   =        64
+-------------+----------------------------------   F(4, 59)        =      5.85
+       Model |  38.5889949         4  9.64724873   Prob &gt; F        =    0.0005
+    Residual |   97.297246        59  1.64910586   R-squared       =    0.2840
+-------------+----------------------------------   Adj R-squared   =    0.2354
+       Total |  135.886241        63  2.15692446   Root MSE        =    1.2842
+      avexpr | Coefficient  Std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+      africa |  -.7355521   .3582597    -2.05   0.045    -1.452428   -.0186761
+        asia |   .5713437   .4996837     1.14   0.257    -.4285212    1.571209
+  other_cont |   1.759143   .7983832     2.20   0.031     .1615819    3.356704
+      yellow |  -.8047243    .381407    -2.11   0.039    -1.567918   -.0415306
+       _cons |   7.266674   .3760007    19.33   0.000     6.514298     8.01905
+Instrumental variables 2SLS regression
+      Source |       SS           df       MS      Number of obs   =        64
+-------------+----------------------------------   F(4, 59)        =     11.91
+       Model |  24.6901627         4  6.17254067   Prob &gt; F        =    0.0000
+    Residual |  43.8915558        59  .743924675   R-squared       =    0.3600
+-------------+----------------------------------   Adj R-squared   =    0.3166
+       Total |  68.5817185        63  1.08859871   Root MSE        =    .86251
+    logpgp95 | Coefficient  Std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+      avexpr |     .89888   .3183331     2.82   0.006      .261897    1.535863
+      africa |  -.5319418   .3522792    -1.51   0.136    -1.236851    .1729673
+        asia |  -.8804986   .3746063    -2.35   0.022    -1.630084   -.1309131
+  other_cont |  -.7679866   .8438444    -0.91   0.366    -2.456515    .9205422
+       _cons |   2.589704   2.135758     1.21   0.230    -1.683937    6.863346
+Instrumented: avexpr
+ Instruments: africa asia other_cont yellow
+. 
+. 
+. 
+. **********************************
+. *--Panel C, OLS Regressions
+. **********************************
+. 
+. *Columns 1 and 2: Instrumenting only for average protection against expropria
+. 
+. reg logpgp95 avexpr malfal94
+      Source |       SS           df       MS      Number of obs   =        62
+-------------+----------------------------------   F(2, 59)        =     73.33
+       Model |  46.4337121         2   23.216856   Prob &gt; F        =    0.0000
+    Residual |  18.6809795        59  .316626771   R-squared       =    0.7131
+-------------+----------------------------------   Adj R-squared   =    0.7034
+       Total |  65.1146915        61  1.06745396   Root MSE        =     .5627
+    logpgp95 | Coefficient  Std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+      avexpr |   .3509642   .0554654     6.33   0.000     .2399782    .4619503
+    malfal94 |  -1.135474   .1900133    -5.98   0.000     -1.51569   -.7552583
+       _cons |    6.19145    .407859    15.18   0.000     5.375326    7.007574
+. reg logpgp95 lat_abst avexpr malfal94
+      Source |       SS           df       MS      Number of obs   =        62
+-------------+----------------------------------   F(3, 58)        =     48.25
+       Model |  46.4877542         3  15.4959181   Prob &gt; F        =    0.0000
+    Residual |  18.6269374        58  .321154093   R-squared       =    0.7139
+-------------+----------------------------------   Adj R-squared   =    0.6991
+       Total |  65.1146915        61  1.06745396   Root MSE        =     .5667
+    logpgp95 | Coefficient  Std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+    lat_abst |   .2582019   .6294339     0.41   0.683    -1.001747    1.518151
+      avexpr |   .3463088   .0570017     6.08   0.000     .2322075    .4604102
+    malfal94 |  -1.108205   .2025843    -5.47   0.000    -1.513721   -.7026881
+       _cons |   6.165385   .4156501    14.83   0.000     5.333371    6.997399
+. 
+. *Columns 3 and 4: Instrumenting only for average protection against expropria
+. 
+. reg logpgp95 avexpr leb95
+      Source |       SS           df       MS      Number of obs   =        60
+-------------+----------------------------------   F(2, 57)        =     95.42
+       Model |  46.9114552         2  23.4557276   Prob &gt; F        =    0.0000
+    Residual |  14.0109268        57  .245805733   R-squared       =    0.7700
+-------------+----------------------------------   Adj R-squared   =    0.7620
+       Total |  60.9223819        59  1.03258274   Root MSE        =    .49579
+    logpgp95 | Coefficient  Std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+      avexpr |    .281429   .0515996     5.45   0.000     .1781026    .3847553
+       leb95 |   .0516756   .0067343     7.67   0.000     .0381905    .0651608
+       _cons |   2.959353   .3718872     7.96   0.000     2.214662    3.704044
+. reg logpgp95 lat_abst avexpr leb95
+      Source |       SS           df       MS      Number of obs   =        60
+-------------+----------------------------------   F(3, 56)        =     62.60
+       Model |  46.9289172         3  15.6429724   Prob &gt; F        =    0.0000
+    Residual |  13.9934647        56  .249883298   R-squared       =    0.7703
+-------------+----------------------------------   Adj R-squared   =    0.7580
+       Total |  60.9223819        59  1.03258274   Root MSE        =    .49988
+    logpgp95 | Coefficient  Std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+    lat_abst |   .1470599   .5563073     0.26   0.792    -.9673576    1.261477
+      avexpr |    .279186   .0527131     5.30   0.000     .1735889    .3847831
+       leb95 |   .0510751   .0071599     7.13   0.000      .036732    .0654181
+       _cons |   2.985108   .3874102     7.71   0.000     2.209033    3.761184
+. 
+. *Columns 5 and 6: Instrumenting only for average protection against expropria
+. 
+. reg logpgp95 avexpr imr95
+      Source |       SS           df       MS      Number of obs   =        60
+-------------+----------------------------------   F(2, 57)        =     99.78
+       Model |  47.3876984         2  23.6938492   Prob &gt; F        =    0.0000
+    Residual |  13.5346836        57  .237450589   R-squared       =    0.7778
+-------------+----------------------------------   Adj R-squared   =    0.7700
+       Total |  60.9223819        59  1.03258274   Root MSE        =    .48729
+    logpgp95 | Coefficient  Std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+      avexpr |   .2885415   .0499978     5.77   0.000     .1884226    .3886603
+       imr95 |  -.0156931   .0019778    -7.93   0.000    -.0196535   -.0117327
+       _cons |   7.017131   .3997051    17.56   0.000     6.216736    7.817527
+. reg logpgp95 lat_abst avexpr imr95
+      Source |       SS           df       MS      Number of obs   =        60
+-------------+----------------------------------   F(3, 56)        =     66.89
+       Model |  47.6310952         3  15.8770317   Prob &gt; F        =    0.0000
+    Residual |  13.2912868        56  .237344407   R-squared       =    0.7818
+-------------+----------------------------------   Adj R-squared   =    0.7701
+       Total |  60.9223819        59  1.03258274   Root MSE        =    .48718
+    logpgp95 | Coefficient  Std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+    lat_abst |   .5337625   .5270844     1.01   0.316    -.5221144    1.589639
+      avexpr |   .2773088   .0512025     5.42   0.000     .1747379    .3798798
+       imr95 |  -.0152412   .0020271    -7.52   0.000    -.0193019   -.0111805
+       _cons |   6.969492   .4023752    17.32   0.000     6.163438    7.775547
+. 
+. *Column 7: Instrumenting for all RHS variables: malaria control
+. reg logpgp95 avexpr malfal94 if  (logem4!=.&amp;latabs!=.&amp; lt100km!=.&amp; meantemp!=
+      Source |       SS           df       MS      Number of obs   =        60
+-------------+----------------------------------   F(2, 57)        =     77.83
+       Model |   44.928495         2  22.4642475   Prob &gt; F        =    0.0000
+    Residual |  16.4514439        57  .288621823   R-squared       =    0.7320
+-------------+----------------------------------   Adj R-squared   =    0.7226
+       Total |  61.3799389        59  1.04033795   Root MSE        =    .53724
+    logpgp95 | Coefficient  Std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+      avexpr |   .3444561   .0530739     6.49   0.000     .2381775    .4507347
+    malfal94 |  -1.127466   .1814437    -6.21   0.000    -1.490801   -.7641314
+       _cons |   6.251652   .3909123    15.99   0.000     5.468863     7.03444
+. 
+. *Column 8: Instrumenting for all RHS variables: life expectancy control
+. reg logpgp95 avexpr leb95 if  (logem4!=.&amp;latabs!=.&amp; lt100km!=.&amp; meantemp!=.)
+      Source |       SS           df       MS      Number of obs   =        59
+-------------+----------------------------------   F(2, 56)        =     91.04
+       Model |  43.8450787         2  21.9225393   Prob &gt; F        =    0.0000
+    Residual |  13.4854617        56  .240811817   R-squared       =    0.7648
+-------------+----------------------------------   Adj R-squared   =    0.7564
+       Total |  57.3305404        58  .988457594   Root MSE        =    .49073
+    logpgp95 | Coefficient  Std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+      avexpr |    .286225   .0511758     5.59   0.000     .1837075    .3887424
+       leb95 |   .0495085   .0068251     7.25   0.000     .0358362    .0631807
+       _cons |   3.075366   .3763752     8.17   0.000     2.321396    3.829336
+. 
+. *Column 9: Instrumenting for all RHS variables: infant mortality control
+. reg logpgp95 avexpr imr95 if  (logem4!=.&amp;latabs!=.&amp; lt100km!=.&amp; meantemp!=.)
+      Source |       SS           df       MS      Number of obs   =        59
+-------------+----------------------------------   F(2, 56)        =     95.94
+       Model |  44.3787849         2  22.1893924   Prob &gt; F        =    0.0000
+    Residual |  12.9517556        56  .231281349   R-squared       =    0.7741
+-------------+----------------------------------   Adj R-squared   =    0.7660
+       Total |  57.3305404        58  .988457594   Root MSE        =    .48092
+    logpgp95 | Coefficient  Std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+      avexpr |   .2925376   .0494082     5.92   0.000     .1935611    .3915141
+       imr95 |  -.0150567   .0019926    -7.56   0.000    -.0190484   -.0110649
+       _cons |    6.96808   .3956867    17.61   0.000     6.175424    7.760735
+. 
+. *Columns 10 and 11: Yellow fever instrument for average protection against ex
+. 
+. reg logpgp95 avexpr if yellow!=.
+      Source |       SS           df       MS      Number of obs   =        64
+-------------+----------------------------------   F(1, 62)        =     72.82
+       Model |  37.0420118         1  37.0420118   Prob &gt; F        =    0.0000
+    Residual |  31.5397067        62  .508704946   R-squared       =    0.5401
+-------------+----------------------------------   Adj R-squared   =    0.5327
+       Total |  68.5817185        63  1.08859871   Root MSE        =    .71324
+    logpgp95 | Coefficient  Std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+      avexpr |    .522107    .061185     8.53   0.000     .3997999    .6444142
+       _cons |   4.660383   .4085062    11.41   0.000     3.843791    5.476976
+. 
+. reg logpgp95 avexpr africa asia other_cont if yellow!=.
+      Source |       SS           df       MS      Number of obs   =        64
+-------------+----------------------------------   F(4, 59)        =     35.14
+       Model |  48.3041091         4  12.0760273   Prob &gt; F        =    0.0000
+    Residual |  20.2776094        59  .343688295   R-squared       =    0.7043
+-------------+----------------------------------   Adj R-squared   =    0.6843
+       Total |  68.5817185        63  1.08859871   Root MSE        =    .58625
+    logpgp95 | Coefficient  Std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+      avexpr |   .4238307   .0573108     7.40   0.000      .309152    .5385094
+      africa |  -.9176114   .1692382    -5.42   0.000    -1.256256   -.5789665
+        asia |  -.6311697   .2298693    -2.75   0.008    -1.091137   -.1712023
+  other_cont |   .2155095   .3773438     0.57   0.570    -.5395537    .9705726
+       _cons |   5.766489   .4007874    14.39   0.000     4.964515    6.568462
+. 
+. 
+. 
+end of do-file
+. </pre>
