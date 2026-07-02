@@ -1,0 +1,231 @@
+paper:
+  doi: https://doi.org/10.1257/aer.91.5.1369
+  title: The Colonial Origins of Comparative Development
+  journal: American Economic Review
+  year: 2001
+  authors: Daron Acemoglu, Simon Johnson, James A. Robinson
+  materials: folder
+  source_url: https://econ-www.mit.edu/faculty/acemoglu/data/ajr2001
+  source_note: Original Stata code and data from MIT; R translations in code/tab_*.R
+  dependencies:
+    - haven
+    - modelsummary
+    - AER
+    - knitr
+    - lmtest
+
+replications:
+  - id: tab_1
+    group: tab_1
+    engine: r
+    type: table
+    label: Table 1
+    description: Summary Statistics
+    data: data/maketable1.dta
+    code: code/tab_1.R
+    format: format_tab_1
+    artifact: artifacts/tab_1.html
+    dependencies:
+      - knitr
+
+  - id: tab_1_stata
+    group: tab_1
+    engine: stata
+    type: table
+    label: Table 1
+    description: Summary Statistics (original MIT Stata)
+    data: data/maketable1.dta
+    code: code/tab_1.do
+    stata_source: stata/maketable1.do
+    format: code/format_stata.R
+    output: artifacts/staging/tab_1_stata.log
+    artifact: artifacts/tab_1_stata.html
+
+  - id: tab_2
+    group: tab_2
+    engine: r
+    type: table
+    label: Table 2
+    description: OLS Regressions
+    data: data/maketable2.dta
+    code: code/tab_2.R
+    format: format_tab_2
+    artifact: artifacts/tab_2.html
+    dependencies:
+      - modelsummary
+
+  - id: tab_2_stata
+    group: tab_2
+    engine: stata
+    type: table
+    label: Table 2
+    description: OLS Regressions (original MIT Stata)
+    data: data/maketable2.dta
+    code: code/tab_2.do
+    stata_source: stata/maketable2.do
+    format: code/format_stata.R
+    output: artifacts/staging/tab_2_stata.log
+    artifact: artifacts/tab_2_stata.html
+
+  - id: tab_3
+    group: tab_3
+    engine: r
+    type: table
+    label: Table 3
+    description: Determinants of Institutions
+    data: data/maketable3.dta
+    code: code/tab_3.R
+    format: format_tab_3
+    artifact: artifacts/tab_3.html
+    dependencies:
+      - modelsummary
+
+  - id: tab_3_stata
+    group: tab_3
+    engine: stata
+    type: table
+    label: Table 3
+    description: Determinants of Institutions (original MIT Stata)
+    data: data/maketable3.dta
+    code: code/tab_3.do
+    stata_source: stata/maketable3.do
+    format: code/format_stata.R
+    output: artifacts/staging/tab_3_stata.log
+    artifact: artifacts/tab_3_stata.html
+
+  - id: tab_4
+    group: tab_4
+    engine: r
+    type: table
+    label: Table 4
+    description: IV Regressions of Log GDP per Capita
+    data: data/maketable4.dta
+    code: code/tab_4.R
+    format: format_tab_4
+    artifact: artifacts/tab_4.html
+    dependencies:
+      - modelsummary
+      - AER
+
+  - id: tab_4_stata
+    group: tab_4
+    engine: stata
+    type: table
+    label: Table 4
+    description: IV Regressions of Log GDP per Capita (original MIT Stata)
+    data: data/maketable4.dta
+    code: code/tab_4.do
+    stata_source: stata/maketable4.do
+    format: code/format_stata.R
+    output: artifacts/staging/tab_4_stata.log
+    artifact: artifacts/tab_4_stata.html
+
+  - id: tab_5
+    group: tab_5
+    engine: r
+    type: table
+    label: Table 5
+    description: IV Regressions of Log GDP per Capita with Additional Controls
+    data: data/maketable5.dta
+    code: code/tab_5.R
+    format: format_tab_5
+    artifact: artifacts/tab_5.html
+    dependencies:
+      - modelsummary
+      - AER
+
+  - id: tab_5_stata
+    group: tab_5
+    engine: stata
+    type: table
+    label: Table 5
+    description: IV Regressions with Additional Controls (original MIT Stata)
+    data: data/maketable5.dta
+    code: code/tab_5.do
+    stata_source: stata/maketable5.do
+    format: code/format_stata.R
+    output: artifacts/staging/tab_5_stata.log
+    artifact: artifacts/tab_5_stata.html
+
+  - id: tab_6
+    group: tab_6
+    engine: r
+    type: table
+    label: Table 6
+    description: Robustness Checks for IV Regressions with Log GDP Per Capita
+    data: data/maketable6.dta
+    code: code/tab_6.R
+    format: format_tab_6
+    artifact: artifacts/tab_6.html
+    dependencies:
+      - modelsummary
+      - AER
+
+  - id: tab_6_stata
+    group: tab_6
+    engine: stata
+    type: table
+    label: Table 6
+    description: Robustness Checks (original MIT Stata)
+    data: data/maketable6.dta
+    code: code/tab_6.do
+    stata_source: stata/maketable6.do
+    format: code/format_stata.R
+    output: artifacts/staging/tab_6_stata.log
+    artifact: artifacts/tab_6_stata.html
+
+  - id: tab_7
+    group: tab_7
+    engine: r
+    type: table
+    label: Table 7
+    description: Geography and Health Variables
+    data: data/maketable7.dta
+    code: code/tab_7.R
+    format: format_tab_7
+    artifact: artifacts/tab_7.html
+    dependencies:
+      - modelsummary
+      - AER
+
+  - id: tab_7_stata
+    group: tab_7
+    engine: stata
+    type: table
+    label: Table 7
+    description: Geography and Health Variables (original MIT Stata)
+    data: data/maketable7.dta
+    code: code/tab_7.do
+    stata_source: stata/maketable7.do
+    format: code/format_stata.R
+    output: artifacts/staging/tab_7_stata.log
+    artifact: artifacts/tab_7_stata.html
+
+  - id: tab_8
+    group: tab_8
+    engine: r
+    type: table
+    label: Table 8
+    description: Overidentification Tests
+    data: data/maketable8.dta
+    code: code/tab_8.R
+    format: format_tab_8
+    artifact: artifacts/tab_8.html
+    dependencies:
+      - modelsummary
+      - AER
+      - lmtest
+      - knitr
+
+  - id: tab_8_stata
+    group: tab_8
+    engine: stata
+    type: table
+    label: Table 8
+    description: Overidentification Tests (original MIT Stata)
+    data: data/maketable8.dta
+    code: code/tab_8.do
+    stata_source: stata/maketable8.do
+    format: code/format_stata.R
+    output: artifacts/staging/tab_8_stata.log
+    artifact: artifacts/tab_8_stata.html

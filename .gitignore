@@ -1,0 +1,5 @@
+artifacts/staging/
+artifacts/staging/.run/
+*.log
+*.smcl
+tab_*.log
