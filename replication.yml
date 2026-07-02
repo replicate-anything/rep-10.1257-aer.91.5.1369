@@ -36,7 +36,7 @@ replications:
     description: Summary Statistics (original MIT Stata)
     data: data/maketable1.dta
     code: code/tab_1.do
-    stata_source: stata/maketable1.do
+    stata_source: code/maketable1.do
     format: code/format_stata.R
     output: artifacts/staging/tab_1_stata.log
     artifact: artifacts/tab_1_stata.html
@@ -62,7 +62,7 @@ replications:
     description: OLS Regressions (original MIT Stata)
     data: data/maketable2.dta
     code: code/tab_2.do
-    stata_source: stata/maketable2.do
+    stata_source: code/maketable2.do
     format: code/format_stata.R
     output: artifacts/staging/tab_2_stata.log
     artifact: artifacts/tab_2_stata.html
@@ -88,7 +88,7 @@ replications:
     description: Determinants of Institutions (original MIT Stata)
     data: data/maketable3.dta
     code: code/tab_3.do
-    stata_source: stata/maketable3.do
+    stata_source: code/maketable3.do
     format: code/format_stata.R
     output: artifacts/staging/tab_3_stata.log
     artifact: artifacts/tab_3_stata.html
@@ -115,7 +115,7 @@ replications:
     description: IV Regressions of Log GDP per Capita (original MIT Stata)
     data: data/maketable4.dta
     code: code/tab_4.do
-    stata_source: stata/maketable4.do
+    stata_source: code/maketable4.do
     format: code/format_stata.R
     output: artifacts/staging/tab_4_stata.log
     artifact: artifacts/tab_4_stata.html
@@ -142,7 +142,7 @@ replications:
     description: IV Regressions with Additional Controls (original MIT Stata)
     data: data/maketable5.dta
     code: code/tab_5.do
-    stata_source: stata/maketable5.do
+    stata_source: code/maketable5.do
     format: code/format_stata.R
     output: artifacts/staging/tab_5_stata.log
     artifact: artifacts/tab_5_stata.html
@@ -169,7 +169,7 @@ replications:
     description: Robustness Checks (original MIT Stata)
     data: data/maketable6.dta
     code: code/tab_6.do
-    stata_source: stata/maketable6.do
+    stata_source: code/maketable6.do
     format: code/format_stata.R
     output: artifacts/staging/tab_6_stata.log
     artifact: artifacts/tab_6_stata.html
@@ -196,7 +196,7 @@ replications:
     description: Geography and Health Variables (original MIT Stata)
     data: data/maketable7.dta
     code: code/tab_7.do
-    stata_source: stata/maketable7.do
+    stata_source: code/maketable7.do
     format: code/format_stata.R
     output: artifacts/staging/tab_7_stata.log
     artifact: artifacts/tab_7_stata.html
@@ -225,7 +225,7 @@ replications:
     description: Overidentification Tests (original MIT Stata)
     data: data/maketable8.dta
     code: code/tab_8.do
-    stata_source: stata/maketable8.do
+    stata_source: code/maketable8.do
     format: code/format_stata.R
     output: artifacts/staging/tab_8_stata.log
     artifact: artifacts/tab_8_stata.html

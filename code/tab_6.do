@@ -1,7 +1,7 @@
 * Table 1 - Colonial Origins (Stata)
 * Study repo: rep-10.1257-aer.91.5.1369
 *
-* This file is the RUNNER. Shiny merges it with stata/maketable6.do for a
+* This file is the RUNNER. Shiny merges it with code/maketable6.do for a
 * single copy-paste script. To run manually from the study repo root:
 *   do "code/tab_1.do"
 *
@@ -29,8 +29,8 @@ local oldpwd "`c(pwd)'"
 cd "${result}"
 log using "tab_6_stata", replace text
 
-* Analysis is in stata/maketable6.do (shown in full in the Code tab).
-quietly do "${maindir}/stata/maketable6.do"
+* Analysis is in code/maketable6.do (shown in full in the Code tab).
+quietly do "${maindir}/code/maketable6.do"
 
 capture log close
 cd "`oldpwd'"

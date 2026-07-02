@@ -1,6 +1,6 @@
 # Table 1 — Summary Statistics (R)
 # Study repo: rep-10.1257-aer.91.5.1369
-# R translation of stata/maketable1.do — use replication id tab_1 (not tab_1_stata).
+# R translation of code/maketable1.do — use replication id tab_1 (not tab_1_stata).
 
 summarize_vars <- function(data, vars) {
   out <- lapply(vars, function(v) {

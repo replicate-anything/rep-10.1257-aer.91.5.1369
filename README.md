@@ -8,7 +8,7 @@ Original Stata code and data are from the MIT replication page:
 
 https://econ-www.mit.edu/faculty/acemoglu/data/ajr2001
 
-We preserve the MIT `.do` files under `stata/` and run them through thin wrappers in `code/tab_N.do`. R translations live alongside them as `code/tab_N.R`.
+MIT analysis scripts live in `code/maketableN.do`. Thin runners in `code/tab_N.do` set paths and call them. R translations are `code/tab_N.R`.
 
 ## Layout
 
@@ -16,10 +16,10 @@ We preserve the MIT `.do` files under `stata/` and run them through thin wrapper
 rep-10.1257-aer.91.5.1369/
   replication.yml       # 8 tables × 2 engines (R + Stata)
   data/                 # maketable1.dta … maketable8.dta
-  stata/                # original MIT scripts (path-patched)
   code/
     tab_N.R             # R: make_tab_N() + format_tab_N()
-    tab_N.do            # Stata wrapper → stata/maketableN.do
+    tab_N.do            # Stata runner (paths + log)
+    maketableN.do       # original MIT analysis (path-patched)
     format_stata.R      # shared Stata log → HTML formatter
   artifacts/            # precomputed display HTML
 ```
@@ -32,7 +32,7 @@ Each table has two replication ids in `replication.yml`:
 
 The `group` field ties the two engines together in Shiny (R / St buttons per row).
 
-**Code tab:** Shiny shows one language at a time. Stata entries merge the runner (`code/tab_N.do`) with the substantive MIT script (`stata/maketableN.do`) into a single copy-paste script with `SETUP` and `ANALYSIS` banners. R entries show only `code/tab_N.R` (no Stata mixed in). R display helpers (`format_stata.R`) are infrastructure and are not shown in the Code tab.
+**Code tab:** Stata entries merge the runner (`code/tab_N.do`) with the substantive MIT script (`code/maketableN.do`) into a single copy-paste script with `SETUP` and `ANALYSIS` banners. R entries show only `code/tab_N.R`.
 
 ## Run locally
 
@@ -52,6 +52,6 @@ replicateEverything::run_replication("10.1257/aer.91.5.1369", "tab_2_stata", for
 
 ## Notes
 
-- MIT scripts log to `maketableN.log`; wrappers write logs under `artifacts/staging/` (or writable staging on the server).
+- Stata output logs go under `artifacts/staging/` (gitignored).
 - Table 1 quartile bins may differ slightly from the paper (noted in the original MIT code).
-- R IV specifications use `AER::ivreg`; Hausman tests in Table 8 are not yet ported to R.
+- R IV specifications use `AER::ivreg`; Hausman tests in Table 8 use `lmtest::waldtest`.
