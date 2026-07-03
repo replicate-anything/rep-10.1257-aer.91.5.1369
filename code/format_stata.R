@@ -71,11 +71,11 @@ split_stata_pipe_row <- function(line) {
 
 parse_stata_table_block <- function(lines) {
   if (!length(lines)) return(NULL)
-  header_idx <- grep("Variable \\|", lines)
+  header_idx <- grep("Variable \\||\\|\\s*Coefficient", lines)
   if (!length(header_idx)) return(NULL)
   header_idx <- header_idx[[1]]
   tail <- lines[(header_idx + 1L):length(lines)]
-  sep_idx <- grep("^[-+]+$", tail)
+  sep_idx <- grep("^[-+]{3,}", vapply(tail, trimws, character(1)))
   if (!length(sep_idx)) return(NULL)
   data_start <- header_idx + sep_idx[[1]] + 1L
   header <- split_stata_pipe_row(lines[[header_idx]])
@@ -83,18 +83,24 @@ parse_stata_table_block <- function(lines) {
     header <- c("Variable", "Obs", "Mean", "Std. dev.", "Min", "Max")
   }
   rows <- list()
+  end_line <- data_start - 1L
   for (i in seq.int(data_start, length(lines))) {
     line <- lines[[i]]
-    if (!nzchar(trimws(line))) break
-    if (grepl("^[-+]", trimws(line))) break
+    trimmed <- trimws(line)
+    if (!nzchar(trimmed)) break
+    if (grepl("^Note:", trimmed)) break
     if (grepl("^\\. ", line)) break
+    if (grepl("^[-+]{3,}$", trimmed)) break
     cells <- split_stata_pipe_row(line)
     if (length(cells) >= 2L) {
       rows[[length(rows) + 1L]] <- cells
+      end_line <- i
+    } else {
+      break
     }
   }
   if (!length(rows)) return(NULL)
-  list(header = header, rows = rows)
+  list(header = header, rows = rows, end_line = end_line)
 }
 
 stata_table_html <- function(title, block) {
@@ -143,7 +149,7 @@ format_stata_log_lines <- function(lines) {
       html <- stata_table_html(cmd, block)
       if (!is.null(html)) {
         parts <- c(parts, html)
-        i <- i + length(block$rows) + 4L
+        i <- i + block$end_line
         next
       }
     }
