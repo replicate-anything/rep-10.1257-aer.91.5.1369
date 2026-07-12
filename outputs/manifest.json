@@ -1,0 +1,13 @@
+{
+  "generated_at": "2026-07-02T21:14:54Z",
+  "folder": "10.1257_aer.91.5.1369",
+  "doi": "10.1257/aer.91.5.1369",
+  "study_repo": "replicate-anything/rep-10.1257-aer.91.5.1369",
+  "study_folder": "rep-10.1257-aer.91.5.1369",
+  "replications": {
+    "tab_1_stata": {
+      "status": "error",
+      "message": "Expected Stata output not found.\nExpected file: rep-10.1257-aer.91.5.1369/artifacts/staging/tab_1_stata.log\nStata ran: yes\nExecutable: C:/Program Files/Stata17/StataMP-64.exe\nInvocation: /e do rep-10.1257-aer.91.5.1369/artifacts/staging/.run/replicate_tab_1.do\nExit status: 0\nDo-file: rep-10.1257-aer.91.5.1369/code/tab_1.do\nStudy folder (code): rep-10.1257-aer.91.5.1369\nStaging directory: rep-10.1257-aer.91.5.1369/artifacts/staging\nLog file: rep-10.1257-aer.91.5.1369/artifacts/staging/.run/replicate_tab_1.log\nLog exists: no\nAlso checked:\n  - rep-10.1257-aer.91.5.1369/artifacts/staging/tab_1_stata.log\n  - rep-10.1257-aer.91.5.1369/artifacts/staging/tab_1_stata.log\nStudy staging: rep-10.1257-aer.91.5.1369/artifacts/staging\n  (empty)\nWritable staging: rep-10.1257-aer.91.5.1369/artifacts/staging\n  (empty)"
+    }
+  }
+}

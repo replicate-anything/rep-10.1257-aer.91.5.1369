@@ -35,7 +35,7 @@ replications:
     data: data/maketable1.dta
     code: code/tab_1.R
     format: format_tab_1
-    artifact: artifacts/tab_1.html
+    artifact: outputs/tab_1.html
     dependencies:
       - knitr
 
@@ -49,8 +49,8 @@ replications:
     code: code/tab_1.do
     stata_source: code/maketable1.do
     format: code/format_stata.R
-    output: artifacts/staging/tab_1_stata.log
-    artifact: artifacts/tab_1_stata.html
+    output: outputs/staging/tab_1_stata.log
+    artifact: outputs/tab_1_stata.html
 
   - id: tab_2
     group: tab_2
@@ -61,7 +61,7 @@ replications:
     data: data/maketable2.dta
     code: code/tab_2.R
     format: format_tab_2
-    artifact: artifacts/tab_2.html
+    artifact: outputs/tab_2.html
     dependencies:
       - modelsummary
 
@@ -75,8 +75,8 @@ replications:
     code: code/tab_2.do
     stata_source: code/maketable2.do
     format: code/format_stata.R
-    output: artifacts/staging/tab_2_stata.log
-    artifact: artifacts/tab_2_stata.html
+    output: outputs/staging/tab_2_stata.log
+    artifact: outputs/tab_2_stata.html
 
   - id: tab_3
     group: tab_3
@@ -87,7 +87,7 @@ replications:
     data: data/maketable3.dta
     code: code/tab_3.R
     format: format_tab_3
-    artifact: artifacts/tab_3.html
+    artifact: outputs/tab_3.html
     dependencies:
       - modelsummary
 
@@ -101,8 +101,8 @@ replications:
     code: code/tab_3.do
     stata_source: code/maketable3.do
     format: code/format_stata.R
-    output: artifacts/staging/tab_3_stata.log
-    artifact: artifacts/tab_3_stata.html
+    output: outputs/staging/tab_3_stata.log
+    artifact: outputs/tab_3_stata.html
 
   - id: tab_4
     group: tab_4
@@ -113,7 +113,7 @@ replications:
     data: data/maketable4.dta
     code: code/tab_4.R
     format: format_tab_4
-    artifact: artifacts/tab_4.html
+    artifact: outputs/tab_4.html
     dependencies:
       - modelsummary
       - AER
@@ -128,8 +128,8 @@ replications:
     code: code/tab_4.do
     stata_source: code/maketable4.do
     format: code/format_stata.R
-    output: artifacts/staging/tab_4_stata.log
-    artifact: artifacts/tab_4_stata.html
+    output: outputs/staging/tab_4_stata.log
+    artifact: outputs/tab_4_stata.html
 
   - id: tab_5
     group: tab_5
@@ -140,7 +140,7 @@ replications:
     data: data/maketable5.dta
     code: code/tab_5.R
     format: format_tab_5
-    artifact: artifacts/tab_5.html
+    artifact: outputs/tab_5.html
     dependencies:
       - modelsummary
       - AER
@@ -155,8 +155,8 @@ replications:
     code: code/tab_5.do
     stata_source: code/maketable5.do
     format: code/format_stata.R
-    output: artifacts/staging/tab_5_stata.log
-    artifact: artifacts/tab_5_stata.html
+    output: outputs/staging/tab_5_stata.log
+    artifact: outputs/tab_5_stata.html
 
   - id: tab_6
     group: tab_6
@@ -167,7 +167,7 @@ replications:
     data: data/maketable6.dta
     code: code/tab_6.R
     format: format_tab_6
-    artifact: artifacts/tab_6.html
+    artifact: outputs/tab_6.html
     dependencies:
       - modelsummary
       - AER
@@ -182,8 +182,8 @@ replications:
     code: code/tab_6.do
     stata_source: code/maketable6.do
     format: code/format_stata.R
-    output: artifacts/staging/tab_6_stata.log
-    artifact: artifacts/tab_6_stata.html
+    output: outputs/staging/tab_6_stata.log
+    artifact: outputs/tab_6_stata.html
 
   - id: tab_7
     group: tab_7
@@ -194,7 +194,7 @@ replications:
     data: data/maketable7.dta
     code: code/tab_7.R
     format: format_tab_7
-    artifact: artifacts/tab_7.html
+    artifact: outputs/tab_7.html
     dependencies:
       - modelsummary
       - AER
@@ -209,8 +209,8 @@ replications:
     code: code/tab_7.do
     stata_source: code/maketable7.do
     format: code/format_stata.R
-    output: artifacts/staging/tab_7_stata.log
-    artifact: artifacts/tab_7_stata.html
+    output: outputs/staging/tab_7_stata.log
+    artifact: outputs/tab_7_stata.html
 
   - id: tab_8
     group: tab_8
@@ -221,7 +221,7 @@ replications:
     data: data/maketable8.dta
     code: code/tab_8.R
     format: format_tab_8
-    artifact: artifacts/tab_8.html
+    artifact: outputs/tab_8.html
     dependencies:
       - modelsummary
       - AER
@@ -238,5 +238,5 @@ replications:
     code: code/tab_8.do
     stata_source: code/maketable8.do
     format: code/format_stata.R
-    output: artifacts/staging/tab_8_stata.log
-    artifact: artifacts/tab_8_stata.html
+    output: outputs/staging/tab_8_stata.log
+    artifact: outputs/tab_8_stata.html
