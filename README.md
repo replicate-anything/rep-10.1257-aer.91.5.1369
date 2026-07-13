@@ -21,7 +21,7 @@ rep-10.1257-aer.91.5.1369/
     tab_N.do            # Stata runner (paths + log)
     maketableN.do       # original MIT analysis (path-patched)
     format_stata.R      # shared Stata log → HTML formatter
-  artifacts/            # precomputed display HTML
+  outputs/            # precomputed display HTML
 ```
 
 Each table has two replication ids in `replication.yml`:
@@ -52,6 +52,6 @@ replicateEverything::run_replication("10.1257/aer.91.5.1369", "tab_2_stata", for
 
 ## Notes
 
-- Stata output logs go under `artifacts/staging/` (gitignored).
+- Stata output logs go under `outputs/staging/` (gitignored).
 - Table 1 quartile bins may differ slightly from the paper (noted in the original MIT code).
 - R IV specifications use `AER::ivreg`; Hausman tests in Table 8 use `lmtest::waldtest`.
