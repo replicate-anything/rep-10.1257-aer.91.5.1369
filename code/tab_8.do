@@ -18,9 +18,9 @@ if "${REPLICATE_STATA_RESULT}" != "" {
     global result "${REPLICATE_STATA_RESULT}"
 }
 else {
-    global result "${maindir}/artifacts/staging"
+    global result "${maindir}/outputs/staging"
 }
-cap mkdir "${maindir}/artifacts"
+cap mkdir "${maindir}/outputs"
 cap mkdir "${result}"
 global datadir "${maindir}/data"
 

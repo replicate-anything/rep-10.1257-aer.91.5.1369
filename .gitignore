@@ -1,5 +1,5 @@
-artifacts/staging/
-artifacts/staging/.run/
+outputs/staging/
+outputs/staging/.run/
 *.log
 *.smcl
 replicate_*.log

@@ -22,7 +22,7 @@ for (n in 1:8) {
     stdout = "",
     stderr = ""
   )
-  log_path <- file.path(study, "artifacts/staging", paste0("tab_", n, "_stata.log"))
+  log_path <- file.path(study, "outputs/staging", paste0("tab_", n, "_stata.log"))
   if (!file.exists(log_path)) {
     warning("Expected log not found after ", basename(do_file), " (status=", status, ")")
   }

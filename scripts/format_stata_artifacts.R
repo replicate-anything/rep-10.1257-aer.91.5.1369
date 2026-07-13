@@ -2,7 +2,7 @@ setwd("C:/WZB Dropbox/Macartan Humphreys/5_github/replicate_everything")
 study <- file.path(getwd(), "rep-10.1257-aer.91.5.1369")
 source(file.path(study, "code/format_stata.R"))
 
-artifact_dir <- file.path(study, "artifacts")
+artifact_dir <- file.path(study, "outputs")
 staging_dir <- file.path(artifact_dir, "staging")
 dir.create(artifact_dir, recursive = TRUE, showWarnings = FALSE)
 dir.create(staging_dir, recursive = TRUE, showWarnings = FALSE)
