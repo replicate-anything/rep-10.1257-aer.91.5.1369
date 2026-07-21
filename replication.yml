@@ -33,14 +33,12 @@ steps:
   dependencies:
   - knitr
   id: tab_1
-  parents: []
   outputs:
   - outputs/tab_1.html
   inputs:
   - data/maketable1.dta
 - id: tab_1_format
   type: format
-  label: Table 1 format
   parent: tab_1
   format: format_tab_1
 - group: tab_1
@@ -53,7 +51,6 @@ steps:
   stata_source: code/maketable1.do
   format: code/format_stata.R
   id: tab_1_stata
-  parents: []
   outputs:
   - outputs/staging/tab_1_stata.log
   - outputs/tab_1_stata.html
@@ -61,7 +58,6 @@ steps:
   - data/maketable1.dta
 - id: tab_1_stata_format
   type: format
-  label: Table 1 format
   parent: tab_1_stata
   code: code/format_stata.R
 - group: tab_2
@@ -75,14 +71,12 @@ steps:
   dependencies:
   - modelsummary
   id: tab_2
-  parents: []
   outputs:
   - outputs/tab_2.html
   inputs:
   - data/maketable2.dta
 - id: tab_2_format
   type: format
-  label: Table 2 format
   parent: tab_2
   format: format_tab_2
 - group: tab_2
@@ -95,7 +89,6 @@ steps:
   stata_source: code/maketable2.do
   format: code/format_stata.R
   id: tab_2_stata
-  parents: []
   outputs:
   - outputs/staging/tab_2_stata.log
   - outputs/tab_2_stata.html
@@ -103,7 +96,6 @@ steps:
   - data/maketable2.dta
 - id: tab_2_stata_format
   type: format
-  label: Table 2 format
   parent: tab_2_stata
   code: code/format_stata.R
 - group: tab_3
@@ -117,14 +109,12 @@ steps:
   dependencies:
   - modelsummary
   id: tab_3
-  parents: []
   outputs:
   - outputs/tab_3.html
   inputs:
   - data/maketable3.dta
 - id: tab_3_format
   type: format
-  label: Table 3 format
   parent: tab_3
   format: format_tab_3
 - group: tab_3
@@ -137,7 +127,6 @@ steps:
   stata_source: code/maketable3.do
   format: code/format_stata.R
   id: tab_3_stata
-  parents: []
   outputs:
   - outputs/staging/tab_3_stata.log
   - outputs/tab_3_stata.html
@@ -145,7 +134,6 @@ steps:
   - data/maketable3.dta
 - id: tab_3_stata_format
   type: format
-  label: Table 3 format
   parent: tab_3_stata
   code: code/format_stata.R
 - group: tab_4
@@ -160,14 +148,12 @@ steps:
   - modelsummary
   - AER
   id: tab_4
-  parents: []
   outputs:
   - outputs/tab_4.html
   inputs:
   - data/maketable4.dta
 - id: tab_4_format
   type: format
-  label: Table 4 format
   parent: tab_4
   format: format_tab_4
 - group: tab_4
@@ -180,7 +166,6 @@ steps:
   stata_source: code/maketable4.do
   format: code/format_stata.R
   id: tab_4_stata
-  parents: []
   outputs:
   - outputs/staging/tab_4_stata.log
   - outputs/tab_4_stata.html
@@ -188,7 +173,6 @@ steps:
   - data/maketable4.dta
 - id: tab_4_stata_format
   type: format
-  label: Table 4 format
   parent: tab_4_stata
   code: code/format_stata.R
 - group: tab_5
@@ -203,14 +187,12 @@ steps:
   - modelsummary
   - AER
   id: tab_5
-  parents: []
   outputs:
   - outputs/tab_5.html
   inputs:
   - data/maketable5.dta
 - id: tab_5_format
   type: format
-  label: Table 5 format
   parent: tab_5
   format: format_tab_5
 - group: tab_5
@@ -223,7 +205,6 @@ steps:
   stata_source: code/maketable5.do
   format: code/format_stata.R
   id: tab_5_stata
-  parents: []
   outputs:
   - outputs/staging/tab_5_stata.log
   - outputs/tab_5_stata.html
@@ -231,7 +212,6 @@ steps:
   - data/maketable5.dta
 - id: tab_5_stata_format
   type: format
-  label: Table 5 format
   parent: tab_5_stata
   code: code/format_stata.R
 - group: tab_6
@@ -246,14 +226,12 @@ steps:
   - modelsummary
   - AER
   id: tab_6
-  parents: []
   outputs:
   - outputs/tab_6.html
   inputs:
   - data/maketable6.dta
 - id: tab_6_format
   type: format
-  label: Table 6 format
   parent: tab_6
   format: format_tab_6
 - group: tab_6
@@ -266,7 +244,6 @@ steps:
   stata_source: code/maketable6.do
   format: code/format_stata.R
   id: tab_6_stata
-  parents: []
   outputs:
   - outputs/staging/tab_6_stata.log
   - outputs/tab_6_stata.html
@@ -274,7 +251,6 @@ steps:
   - data/maketable6.dta
 - id: tab_6_stata_format
   type: format
-  label: Table 6 format
   parent: tab_6_stata
   code: code/format_stata.R
 - group: tab_7
@@ -289,14 +265,12 @@ steps:
   - modelsummary
   - AER
   id: tab_7
-  parents: []
   outputs:
   - outputs/tab_7.html
   inputs:
   - data/maketable7.dta
 - id: tab_7_format
   type: format
-  label: Table 7 format
   parent: tab_7
   format: format_tab_7
 - group: tab_7
@@ -309,7 +283,6 @@ steps:
   stata_source: code/maketable7.do
   format: code/format_stata.R
   id: tab_7_stata
-  parents: []
   outputs:
   - outputs/staging/tab_7_stata.log
   - outputs/tab_7_stata.html
@@ -317,7 +290,6 @@ steps:
   - data/maketable7.dta
 - id: tab_7_stata_format
   type: format
-  label: Table 7 format
   parent: tab_7_stata
   code: code/format_stata.R
 - group: tab_8
@@ -334,14 +306,12 @@ steps:
   - lmtest
   - knitr
   id: tab_8
-  parents: []
   outputs:
   - outputs/tab_8.html
   inputs:
   - data/maketable8.dta
 - id: tab_8_format
   type: format
-  label: Table 8 format
   parent: tab_8
   format: format_tab_8
 - group: tab_8
@@ -354,7 +324,6 @@ steps:
   stata_source: code/maketable8.do
   format: code/format_stata.R
   id: tab_8_stata
-  parents: []
   outputs:
   - outputs/staging/tab_8_stata.log
   - outputs/tab_8_stata.html
@@ -362,7 +331,6 @@ steps:
   - data/maketable8.dta
 - id: tab_8_stata_format
   type: format
-  label: Table 8 format
   parent: tab_8_stata
   code: code/format_stata.R
 repo: replicate-anything/rep-10.1257-aer.91.5.1369
