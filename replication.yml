@@ -36,7 +36,6 @@ steps:
   - knitr
   id: tab_1
   parents: []
-  outputs:
   - outputs/tab_1.html
   inputs:
   - data/maketable1.dta
@@ -80,7 +79,6 @@ steps:
   - modelsummary
   id: tab_2
   parents: []
-  outputs:
   - outputs/tab_2.html
   inputs:
   - data/maketable2.dta
@@ -124,7 +122,6 @@ steps:
   - modelsummary
   id: tab_3
   parents: []
-  outputs:
   - outputs/tab_3.html
   inputs:
   - data/maketable3.dta
@@ -169,7 +166,6 @@ steps:
   - AER
   id: tab_4
   parents: []
-  outputs:
   - outputs/tab_4.html
   inputs:
   - data/maketable4.dta
@@ -214,7 +210,6 @@ steps:
   - AER
   id: tab_5
   parents: []
-  outputs:
   - outputs/tab_5.html
   inputs:
   - data/maketable5.dta
@@ -259,7 +254,6 @@ steps:
   - AER
   id: tab_6
   parents: []
-  outputs:
   - outputs/tab_6.html
   inputs:
   - data/maketable6.dta
@@ -304,7 +298,6 @@ steps:
   - AER
   id: tab_7
   parents: []
-  outputs:
   - outputs/tab_7.html
   inputs:
   - data/maketable7.dta
@@ -351,7 +344,6 @@ steps:
   - knitr
   id: tab_8
   parents: []
-  outputs:
   - outputs/tab_8.html
   inputs:
   - data/maketable8.dta
