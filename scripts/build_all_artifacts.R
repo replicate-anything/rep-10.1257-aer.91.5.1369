@@ -6,7 +6,7 @@ options(
 )
 study <- file.path(getwd(), "rep-10.1257-aer.91.5.1369")
 ids <- c(paste0("tab_", 1:8), paste0("tab_", 1:8, "_stata"))
-replicateEverything::build_study_artifacts(
+replicateEverything::build_study_outputs(
   study,
   install_deps = FALSE,
   ids = ids,

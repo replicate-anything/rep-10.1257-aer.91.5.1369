@@ -9,7 +9,7 @@ ids <- c(paste0("tab_", 1:8), paste0("tab_", 1:8, "_stata"))
 for (id in ids) {
   message("=== ", id, " ===")
   tryCatch(
-    replicateEverything::build_study_artifacts(
+    replicateEverything::build_study_outputs(
       study,
       install_deps = FALSE,
       ids = id,
