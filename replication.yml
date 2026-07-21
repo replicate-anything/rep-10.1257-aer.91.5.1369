@@ -30,7 +30,8 @@ steps:
   data: data/maketable1.dta
   code: code/tab_1.R
   format: format_tab_1
-  artifact: outputs/tab_1.html
+  outputs:
+    - outputs/tab_1.html
   dependencies:
   - knitr
   id: tab_1
@@ -53,7 +54,6 @@ steps:
   code: code/tab_1.do
   stata_source: code/maketable1.do
   format: code/format_stata.R
-  artifact: outputs/tab_1_stata.html
   id: tab_1_stata
   parents: []
   outputs:
@@ -74,7 +74,8 @@ steps:
   data: data/maketable2.dta
   code: code/tab_2.R
   format: format_tab_2
-  artifact: outputs/tab_2.html
+  outputs:
+    - outputs/tab_2.html
   dependencies:
   - modelsummary
   id: tab_2
@@ -97,7 +98,6 @@ steps:
   code: code/tab_2.do
   stata_source: code/maketable2.do
   format: code/format_stata.R
-  artifact: outputs/tab_2_stata.html
   id: tab_2_stata
   parents: []
   outputs:
@@ -118,7 +118,8 @@ steps:
   data: data/maketable3.dta
   code: code/tab_3.R
   format: format_tab_3
-  artifact: outputs/tab_3.html
+  outputs:
+    - outputs/tab_3.html
   dependencies:
   - modelsummary
   id: tab_3
@@ -141,7 +142,6 @@ steps:
   code: code/tab_3.do
   stata_source: code/maketable3.do
   format: code/format_stata.R
-  artifact: outputs/tab_3_stata.html
   id: tab_3_stata
   parents: []
   outputs:
@@ -162,7 +162,8 @@ steps:
   data: data/maketable4.dta
   code: code/tab_4.R
   format: format_tab_4
-  artifact: outputs/tab_4.html
+  outputs:
+    - outputs/tab_4.html
   dependencies:
   - modelsummary
   - AER
@@ -186,7 +187,6 @@ steps:
   code: code/tab_4.do
   stata_source: code/maketable4.do
   format: code/format_stata.R
-  artifact: outputs/tab_4_stata.html
   id: tab_4_stata
   parents: []
   outputs:
@@ -207,7 +207,8 @@ steps:
   data: data/maketable5.dta
   code: code/tab_5.R
   format: format_tab_5
-  artifact: outputs/tab_5.html
+  outputs:
+    - outputs/tab_5.html
   dependencies:
   - modelsummary
   - AER
@@ -231,7 +232,6 @@ steps:
   code: code/tab_5.do
   stata_source: code/maketable5.do
   format: code/format_stata.R
-  artifact: outputs/tab_5_stata.html
   id: tab_5_stata
   parents: []
   outputs:
@@ -252,7 +252,8 @@ steps:
   data: data/maketable6.dta
   code: code/tab_6.R
   format: format_tab_6
-  artifact: outputs/tab_6.html
+  outputs:
+    - outputs/tab_6.html
   dependencies:
   - modelsummary
   - AER
@@ -276,7 +277,6 @@ steps:
   code: code/tab_6.do
   stata_source: code/maketable6.do
   format: code/format_stata.R
-  artifact: outputs/tab_6_stata.html
   id: tab_6_stata
   parents: []
   outputs:
@@ -297,7 +297,8 @@ steps:
   data: data/maketable7.dta
   code: code/tab_7.R
   format: format_tab_7
-  artifact: outputs/tab_7.html
+  outputs:
+    - outputs/tab_7.html
   dependencies:
   - modelsummary
   - AER
@@ -321,7 +322,6 @@ steps:
   code: code/tab_7.do
   stata_source: code/maketable7.do
   format: code/format_stata.R
-  artifact: outputs/tab_7_stata.html
   id: tab_7_stata
   parents: []
   outputs:
@@ -342,7 +342,8 @@ steps:
   data: data/maketable8.dta
   code: code/tab_8.R
   format: format_tab_8
-  artifact: outputs/tab_8.html
+  outputs:
+    - outputs/tab_8.html
   dependencies:
   - modelsummary
   - AER
@@ -368,7 +369,6 @@ steps:
   code: code/tab_8.do
   stata_source: code/maketable8.do
   format: code/format_stata.R
-  artifact: outputs/tab_8_stata.html
   id: tab_8_stata
   parents: []
   outputs:
